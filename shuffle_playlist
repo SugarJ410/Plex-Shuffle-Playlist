@@ -1,0 +1,36 @@
+import random
+from plexapi.server import PlexServer
+
+# Plex server details
+PLEX_URL = "http://your-ip-here:32400"  # Replace with your Plex server IP address
+PLEX_TOKEN = "your-token-here"        # Replace with your Plex token
+
+# Playlist title
+PLAYLIST_TITLE = "your-playlist-title-here"  # Your playlist title
+
+# Connect to the Plex server
+plex = PlexServer(PLEX_URL, PLEX_TOKEN)
+
+# Find the playlist by title
+playlist = None
+for pl in plex.playlists():
+    if pl.title == PLAYLIST_TITLE:
+        playlist = pl
+        break
+
+if not playlist:
+    print(f"Playlist with title '{PLAYLIST_TITLE}' not found.")
+else:
+    # Get the current tracks in the playlist
+    tracks = playlist.items()
+
+    # Shuffle the track list
+    random.shuffle(tracks)
+
+    # Clear the existing playlist
+    playlist.removeItems(tracks)
+
+    # Add the shuffled tracks back to the playlist
+    playlist.addItems(tracks)
+
+    print(f"Playlist '{PLAYLIST_TITLE}' shuffled successfully!")
