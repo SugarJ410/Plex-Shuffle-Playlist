@@ -2,11 +2,11 @@ import random
 from plexapi.server import PlexServer
 
 # Plex server details
-PLEX_URL = "http://your-ip-here:32400"  # Replace with your Plex server IP address
-PLEX_TOKEN = "your-token-here"        # Replace with your Plex token
+PLEX_URL = "http://your_ip_here:32400"  # Replace with your Plex server IP address
+PLEX_TOKEN = "your_token_here"        # Replace with your Plex token
 
 # Playlist title
-PLAYLIST_TITLE = "your-playlist-title-here"  # Your playlist title
+PLAYLIST_TITLE = "your_playlist_title_here"  # Your playlist title
 
 # Connect to the Plex server
 plex = PlexServer(PLEX_URL, PLEX_TOKEN)
